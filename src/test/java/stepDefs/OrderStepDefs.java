@@ -15,21 +15,25 @@ public class OrderStepDefs extends TestBase {
 		initialize();
 	  
 	}
+	
 	@When("User Search an Item {string}")
-	public void user_search_an_item(String strItem) {
+	public void user_search_an_item(String string) {
 		homepage= new HomePage();
-		result=homepage.searchItem(strItem);
-	   
+		result=homepage.searchItem(string);
+		result.viewDetails();
+	    
 	}
 	
 	@Given("User Should Be On Search Result Page")
 	public void user_should_be_on_search_result_page() {
-		result=new SearchResultPage();
-		result.viewDetails();
+//		result=new SearchResultPage();
+//		result.viewDetails();
 	  
 	}
 	@When("Add Items to Cart")
 	public void add_items_to_cart() {
+		result = new SearchResultPage();
+		result.additems();
 	  
 	}
 	@Then("Item Must Be Added")
